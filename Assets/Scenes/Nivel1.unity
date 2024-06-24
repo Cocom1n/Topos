@@ -578,7 +578,7 @@ PolygonCollider2D:
       - {x: -6.140875, y: 4.6615305}
       - {x: -6.4020767, y: -32.18745}
       - {x: 23.522495, y: -32.047554}
-      - {x: 46.187664, y: -31.942732}
+      - {x: 45.83812, y: -31.787382}
       - {x: 46.550934, y: 3.0345278}
   m_UseDelaunayMesh: 0
 --- !u!1 &1478527792
@@ -13981,6 +13981,7 @@ GameObject:
   - component: {fileID: 2127996005}
   - component: {fileID: 2127996004}
   - component: {fileID: 2127996008}
+  - component: {fileID: 2127996009}
   m_Layer: 0
   m_Name: Elric_0
   m_TagString: Player
@@ -14144,6 +14145,28 @@ MonoBehaviour:
   jumpSpeed: 7
   rb2D: {fileID: 2127996005}
   spriteRenderer: {fileID: 2127996006}
+  animator: {fileID: 2127996009}
+--- !u!95 &2127996009
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127996003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 521f4e3700fcb3546b5f76788da75e80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

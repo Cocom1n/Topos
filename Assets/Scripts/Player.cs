@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]Rigidbody2D rb2D;   //referencia al Rb2D del personaje
 
     public SpriteRenderer spriteRenderer;
-    //public Animator animator;
+    public Animator animator;
  
     void Start()
     {
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         {
             rb2D.velocity = new Vector2(runSpeed, rb2D.velocity.y);
             spriteRenderer.flipX = true;
-            //animator.SetBool("walk", true); //Establece que la animacion que se reproducira cuando se ejecute este movimiento
+            animator.SetBool("walk", true);  //Establece que la animacion que se reproducira cuando se ejecute este movimiento
         }
         
         //Movimiento hacia la izquierda
@@ -32,12 +32,12 @@ public class Player : MonoBehaviour
         {
             rb2D.velocity = new Vector2(-runSpeed, rb2D.velocity.y);
             spriteRenderer.flipX = false;
-            //animator.SetBool("walk", true);
+            animator.SetBool("walk", true);
         }
         else
         {
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
-            //animator.SetBool("walk", false); //si walk o jump son falsas el personaje se mostrara en un estado idle
+            animator.SetBool("walk", false); //si walk o jump son falsas el personaje se mostrara en un estado idle
         }
 
         //salto

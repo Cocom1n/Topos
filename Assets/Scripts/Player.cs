@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float runSpeed=7;    //velocidad de movimiento del personaje
     [SerializeField] public float jumpSpeed=10;   //Velocidad de salto
-    [SerializeField]Rigidbody2D rb2D;   //referencia al Rb2D del personaje
+    [SerializeField] private float vidaPlayer=5;
+    [SerializeField] Rigidbody2D rb2D;   //referencia al Rb2D del personaje
 
     public SpriteRenderer spriteRenderer;
     public Animator animator;
@@ -48,12 +49,22 @@ public class Player : MonoBehaviour
 
         if(checkGround.isGrounded==false)
         {   
-            //animator.SetBool("jump", true);
-            //animator.SetBool("walk", false);
+            animator.SetBool("jump", true);
+            animator.SetBool("walk", false);
         }
         if(checkGround.isGrounded==true)
         {   
-            //animator.SetBool("jump", false);
+            animator.SetBool("jump", false);
+        }
+    }
+
+    public void quitarVida()
+    {
+        vidaPlayer--;
+        Debug.Log(vidaPlayer);
+        if(vidaPlayer == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

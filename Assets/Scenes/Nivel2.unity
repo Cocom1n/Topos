@@ -13182,7 +13182,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 11.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5459009540587408257, guid: f91c7ec6328e84742864216067f7a628, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14239,8 +14240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174bc625ad1f56f42b2ee42bf5849c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaJugador: 0
-  vidaMaxima: 0
+  vidaJugador: 5
+  vidaMaxima: 5
   Corazon: {fileID: 744368204}
   posicionPrimerCorazon: {fileID: 1000434322}
   myCanvas: {fileID: 830496510}

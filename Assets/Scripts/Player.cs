@@ -8,17 +8,51 @@ public class Player : MonoBehaviour
     [SerializeField] public float jumpSpeed=10;   //Velocidad de salto
     [SerializeField] private float vidaPlayer=5;
     [SerializeField] Rigidbody2D rb2D;   //referencia al Rb2D del personaje
+    private bool dobleSalto;
+    private bool dobleSaltoPermitido;
+    [SerializeField] private GameObject panelPerder;
 
     public SpriteRenderer spriteRenderer;
     public Animator animator;
  
     void Start()
     {
+        dobleSaltoPermitido = false;
+        panelPerder.SetActive(false);
+        Time.timeScale = 1;
+    }
 
+    void Update()
+    {
+        //salto
+        if(Input.GetKey("space"))
+        {
+            if(checkGround.isGrounded)
+            {
+                dobleSalto = true;
+                rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
+            }
+            else if(Input.GetKeyDown("space") && dobleSalto && dobleSaltoPermitido)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed+4);
+                dobleSalto = false;
+            }
+            
+        }
+
+        if(checkGround.isGrounded==false)
+        {   
+            animator.SetBool("jump", true);
+            animator.SetBool("walk", false);
+        }
+        if(checkGround.isGrounded==true)
+        {   
+            animator.SetBool("jump", false);
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Movimiento hacia la derecha
         if(Input.GetKey("d") || Input.GetKey("right"))
@@ -41,21 +75,7 @@ public class Player : MonoBehaviour
             animator.SetBool("walk", false); //si walk o jump son falsas el personaje se mostrara en un estado idle
         }
 
-        //salto
-        if(Input.GetKey("space") && checkGround.isGrounded)
-        {
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
-        }
-
-        if(checkGround.isGrounded==false)
-        {   
-            animator.SetBool("jump", true);
-            animator.SetBool("walk", false);
-        }
-        if(checkGround.isGrounded==true)
-        {   
-            animator.SetBool("jump", false);
-        }
+        
     }
 
     public void quitarVida()
@@ -65,6 +85,14 @@ public class Player : MonoBehaviour
         if(vidaPlayer == 0)
         {
             Destroy(gameObject);
+            panelPerder.SetActive(true);
+            Time.timeScale = 0;
+            
         }
+    }
+
+    public void setSalto(bool permitidoSaltar)
+    {
+        dobleSaltoPermitido = permitidoSaltar;
     }
 }

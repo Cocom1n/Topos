@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb2D;   //referencia al Rb2D del personaje
     private bool dobleSalto;
     private bool dobleSaltoPermitido;
+    [SerializeField] private GameObject panelPerder;
 
     public SpriteRenderer spriteRenderer;
     public Animator animator;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         dobleSaltoPermitido = false;
+        panelPerder.SetActive(false);
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -82,6 +85,9 @@ public class Player : MonoBehaviour
         if(vidaPlayer == 0)
         {
             Destroy(gameObject);
+            panelPerder.SetActive(true);
+            Time.timeScale = 0;
+            
         }
     }
 

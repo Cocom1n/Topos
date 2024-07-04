@@ -17,7 +17,7 @@ public class Player2 : MonoBehaviour
 
     void Start()
     {
-        vidaMaxima = 3f;
+        vidaMaxima = 5f;
         vidaJugador = vidaMaxima;
         puedeRecibirDaño = true;
         cooldownDaño = 3f;

@@ -149,6 +149,9 @@ public class PlayerController : MonoBehaviour
             if (colisionador.CompareTag("Enemigo"))
             {
                 colisionador.transform.GetComponent<EnemigoTopo>().TomarDaño(dañoGolpe);
+
+                colisionador.transform.GetComponent<MovTopo>().SetEspera(true);
+                //Debug.Log();
             }
 
         }

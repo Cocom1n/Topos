@@ -9,10 +9,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - suelo
   - Water
   - UI
-  - 
+  - Eneny
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 1272818035
+    locked: 0
+  - name: piso
+    uniqueID: 3460373121
+    locked: 0
+  - name: player
+    uniqueID: 3760949937
+    locked: 0
+  - name: enemy
+    uniqueID: 1613132131
     locked: 0

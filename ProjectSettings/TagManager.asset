@@ -39,11 +39,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: background
     uniqueID: 1272818035
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: piso
     uniqueID: 3460373121

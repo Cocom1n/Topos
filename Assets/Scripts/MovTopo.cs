@@ -10,24 +10,20 @@ public class MovTopo : MonoBehaviour
 
     void Start()
     {
-        //velocidad = 3f;
+        //velocidad = 4f;
         StartCoroutine("MueveTopo");
         espera = false;
-        StartCoroutine("EnemigoCamina");
+        //StartCoroutine("EnemigoCamina");
     }
 
     private void Update()
     {
         if (espera == true)
         {
-            velocidad = 0;
-            //espera = false;
-        }
-        else
-        {
-            velocidad = 4;
+            StartCoroutine("EnemigoCamina");
         }
     }
+ 
 
     IEnumerator MueveTopo()
     {
@@ -46,7 +42,14 @@ public class MovTopo : MonoBehaviour
                 nuevaPosicion = new Vector2(puntos[i].position.x, puntos[i].position.y);
             }
     }
-    public void SetEspera( bool esperar)
+    IEnumerator EnemigoCamina()
+{
+    velocidad = 0;
+    yield return new WaitForSeconds(2);
+    espera = false;
+    velocidad = 4;
+}
+public void SetEspera( bool esperar)
     {
         espera = esperar;
     }

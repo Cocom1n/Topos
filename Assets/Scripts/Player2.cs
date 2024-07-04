@@ -14,7 +14,7 @@ public class Player2 : MonoBehaviour
     private bool puedeRecibirDaño;
     private float cooldownDaño;
     private SpriteRenderer spriteRenderer;
-
+    Transform PosCorazon;
     void Start()
     {
         vidaMaxima = 5f;
@@ -24,7 +24,7 @@ public class Player2 : MonoBehaviour
         offSet = 75;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        Transform PosCorazon = posicionPrimerCorazon;
+        PosCorazon = posicionPrimerCorazon;
 
         for (int i = 0; i < vidaMaxima; i++)
         {
@@ -36,7 +36,7 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-        
+   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +54,7 @@ public class Player2 : MonoBehaviour
             spriteRenderer.color = color;
             Destroy(myCanvas.transform.GetChild((int)vidaJugador + 1).gameObject);
             vidaJugador -= collision.GetComponent<EnemigoTopo>().dañoCausado;
+            PosCorazon.position=new Vector2(PosCorazon.position.x - offSet, PosCorazon.position.y);
             gameObject.GetComponent<PlayerController>().AplicarGolpe();
 
             if (vidaJugador <= 0)
@@ -64,6 +65,21 @@ public class Player2 : MonoBehaviour
 
             Invoke("ActivarDaño", cooldownDaño);
         }
+        if (collision.CompareTag("Player"))
+        {
+            if (vidaJugador < vidaMaxima) 
+            {
+                Transform PosCorazon = posicionPrimerCorazon;
+                for (float i = vidaJugador; i < vidaJugador+1; i++)
+                {
+                    Image newCorazon = Instantiate(Corazon, PosCorazon.position, Quaternion.identity);
+                    newCorazon.transform.SetParent(myCanvas.transform);
+                    PosCorazon.position = new Vector2(PosCorazon.position.x + offSet, PosCorazon.position.y);
+                    collision.GetComponent<ArmadilloVida>().Muerte();
+                }
+                vidaJugador += collision.GetComponent<ArmadilloVida>().aumentoVida;
+            }
+        }
     }
 
     void ActivarDaño()
@@ -72,5 +88,10 @@ public class Player2 : MonoBehaviour
         Color c = spriteRenderer.color;
         c.a = 1f;
         spriteRenderer.color = c;
+    }
+
+    public void AgregarVida()
+    {
+        vidaJugador += 1;
     }
 }

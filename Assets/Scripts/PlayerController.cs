@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && tiempoSiguienteAtaque <= 0)
         {
             animator.SetBool("attack", true);
-            //Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
             Golpe();
             tiempoSiguienteAtaque = tiempoEntreAtaques;
         }
@@ -127,18 +126,18 @@ public class PlayerController : MonoBehaviour
 
         rigidBody.AddForce(direccionGolpe * fuerzaGolpe);
 
-        StartCoroutine(EsperaMovimiento());
+        //StartCoroutine(EsperaMovimiento());
     }
 
-    IEnumerator EsperaMovimiento()
-    {
-        yield return new WaitForSeconds(0.1f);
+    //IEnumerator EsperaMovimiento()
+    //{
+    //    yield return new WaitForSeconds(0.1f);
 
-        while (!tocarSuelo)
-        {
-            yield return null;
-        }
-    }
+    //    while (!tocarSuelo)
+    //    {
+    //        yield return null;
+    //    }
+    //}
 
     private void Golpe()
     {
@@ -151,7 +150,6 @@ public class PlayerController : MonoBehaviour
                 colisionador.transform.GetComponent<EnemigoTopo>().TomarDaño(dañoGolpe);
 
                 colisionador.transform.GetComponent<MovTopo>().SetEspera(true);
-                //Debug.Log();
             }
 
         }

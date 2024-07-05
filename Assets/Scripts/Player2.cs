@@ -11,16 +11,16 @@ public class Player2 : MonoBehaviour
     public RectTransform posicionPrimerCorazon;
     public Canvas myCanvas;
     private int offSet;
-    private bool puedeRecibirDaño;
-    private float cooldownDaño;
+    private bool puedeRecibirDaÃ±o;
+    private float cooldownDaÃ±o;
     private SpriteRenderer spriteRenderer;
     Transform PosCorazon;
     void Start()
     {
         vidaMaxima = 5f;
         vidaJugador = vidaMaxima;
-        puedeRecibirDaño = true;
-        cooldownDaño = 3f;
+        puedeRecibirDaÃ±o = true;
+        cooldownDaÃ±o = 3f;
         offSet = 75;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -43,17 +43,17 @@ public class Player2 : MonoBehaviour
     {
         if (collision.CompareTag("Enemigo"))
         {
-            if (!puedeRecibirDaño)
+            if (!puedeRecibirDaÃ±o)
             {
                 return;
             }
 
-            puedeRecibirDaño = false;
+            puedeRecibirDaÃ±o = false;
             Color color = spriteRenderer.color;
             color.a = 0.5f;
             spriteRenderer.color = color;
             Destroy(myCanvas.transform.GetChild((int)vidaJugador + 1).gameObject);
-            vidaJugador -= collision.GetComponent<EnemigoTopo>().dañoCausado;
+            vidaJugador -= collision.GetComponent<EnemigoTopo>().daÃ±oCausado;
             PosCorazon.position=new Vector2(PosCorazon.position.x - offSet, PosCorazon.position.y);
             gameObject.GetComponent<PlayerController>().AplicarGolpe();
 
@@ -63,7 +63,7 @@ public class Player2 : MonoBehaviour
                 Destroy(Corazon);
             }
 
-            Invoke("ActivarDaño", cooldownDaño);
+            Invoke("ActivarDaÃ±o", cooldownDaÃ±o);
         }
         if (collision.CompareTag("Player"))
         {
@@ -82,9 +82,9 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    void ActivarDaño()
+    void ActivarDaÃ±o()
     {
-        puedeRecibirDaño = true;
+        puedeRecibirDaÃ±o = true;
         Color c = spriteRenderer.color;
         c.a = 1f;
         spriteRenderer.color = c;

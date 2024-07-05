@@ -152,6 +152,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1975775550996283837, guid: 0185e143ed8a3fb49821f5db2a1dac00, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2642960995099772480, guid: 0185e143ed8a3fb49821f5db2a1dac00, type: 3}
       propertyPath: m_Mass
       value: 10000
@@ -197,6 +201,7 @@ MonoBehaviour:
   - {fileID: 8710627110355071179}
   - {fileID: 9169914623513177167}
   velocidad: 4
+  espera: 0
 --- !u!4 &7981852474710718905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 962441117352497242, guid: 0185e143ed8a3fb49821f5db2a1dac00, type: 3}

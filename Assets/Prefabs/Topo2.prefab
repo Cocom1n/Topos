@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 1777901033470138526}
   - component: {fileID: 7184484325537874925}
   - component: {fileID: 7510589761661630418}
-  - component: {fileID: 2642960995099772480}
   - component: {fileID: 1975775550996283837}
   m_Layer: 0
   m_Name: Topo2
@@ -168,7 +167,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1613132131
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1682185382, guid: 42f5a6020e1fbc243a025f2a7b4504a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -251,33 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 0
   "da\xF1oCausado": 0
---- !u!50 &2642960995099772480
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8495668971542287226}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &1975775550996283837
 BoxCollider2D:
   m_ObjectHideFlags: 0

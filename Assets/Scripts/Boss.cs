@@ -8,11 +8,16 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     public Transform[] puntos; //Puntos a los que se movera el enemigo
     public PilarAttak pilares;
+    public GameObject SpearLeft;
+    public GameObject SpearRight;
+    public int life=20;
  
-    public float speed = 3f;
-    public int i = 1; 
-    public int random = 3;
-    public int lastR = 0;
+    private float speed = 3f;
+    private int i = 1; 
+
+    private int random = 3;
+    private int lastR = 0;
+    private int Coin=0;
 
     void Start()
     {
@@ -51,15 +56,32 @@ public class Boss : MonoBehaviour
             if (random <= 40)
             {
                 i = 0;
+                Coin = Random.Range(0, 10);
+                if (Coin > 5)
+                {
+                    Coin = 1;
+                    Instantiate(SpearLeft, SpearLeft.transform.position, Quaternion.identity).SetActive(true);
+                }
                 
             }
             else if (random > 40 && random < 70)
             {
                 i = 1;
+                if (Coin > 5)
+                {
+                    Coin = 1;
+                    Instantiate(SpearRight, SpearRight.transform.position, Quaternion.identity).SetActive(true);
+                }
             }
             else if (random >= 60 && random < 90)
             {
                 i = 2;
+                if (Coin > 5)
+                {
+                    Coin = 1;
+                    Instantiate(SpearRight, SpearRight.transform.position, Quaternion.identity).SetActive(true);
+                    Instantiate(SpearLeft, SpearLeft.transform.position, Quaternion.identity).SetActive(true);
+                }
             }
             else if (random >= 90)
             {

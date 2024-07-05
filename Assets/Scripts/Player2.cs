@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +15,11 @@ public class Player2 : MonoBehaviour
     private bool puedeRecibirDaño;
     private float cooldownDaño;
     private SpriteRenderer spriteRenderer;
+    public GameObject gameOver;
     Transform PosCorazon;
     void Start()
     {
+        gameOver.SetActive(false);
         vidaMaxima = 5f;
         vidaJugador = vidaMaxima;
         puedeRecibirDaño = true;
@@ -61,6 +64,8 @@ public class Player2 : MonoBehaviour
             {
                 Destroy(gameObject);
                 Destroy(Corazon);
+                gameOver.SetActive(true);
+                Time.timeScale = 0;
             }
 
             Invoke("ActivarDaño", cooldownDaño);

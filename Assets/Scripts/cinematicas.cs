@@ -23,6 +23,7 @@ public class cinematicas : MonoBehaviour
     void Start()
     {
         //dialogo1Terminado = false;
+        Time.timeScale = 1;
         AnimacionCiudad.SetActive(true);
         AnimacionElric.SetActive(false);
         panelDialogo.SetActive(false);

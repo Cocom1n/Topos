@@ -70,6 +70,30 @@ public class Player2 : MonoBehaviour
 
             Invoke("ActivarDaño", cooldownDaño);
         }
+        if (collision.CompareTag("AttackBos"))
+        {
+            if (!puedeRecibirDaño)
+            {
+                return;
+            }
+
+            puedeRecibirDaño = false;
+            Color color = spriteRenderer.color;
+            color.a = 0.5f;
+            spriteRenderer.color = color;
+            Destroy(myCanvas.transform.GetChild((int)vidaJugador + 1).gameObject);
+            vidaJugador -= 1;
+            PosCorazon.position = new Vector2(PosCorazon.position.x - offSet, PosCorazon.position.y);
+            gameObject.GetComponent<PlayerController>().AplicarGolpe();
+
+            if (vidaJugador <= 0)
+            {
+                Destroy(gameObject);
+                Destroy(Corazon);
+            }
+
+            Invoke("ActivarDaño", cooldownDaño);
+        }
         if (collision.CompareTag("Player"))
         {
             if (vidaJugador < vidaMaxima) 

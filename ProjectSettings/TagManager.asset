@@ -7,6 +7,7 @@ TagManager:
   - Enemigo
   - Piso
   - Boss
+  - AttackBos
   layers:
   - Default
   - TransparentFX

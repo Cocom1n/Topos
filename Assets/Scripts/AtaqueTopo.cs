@@ -32,7 +32,7 @@ public class AtaqueTopo : MonoBehaviour
         animator.SetBool("ataqueTopo", true);
         if (jugadorEnRango && player != null) // Verificar si el jugador aún está en el área de ataque
         {
-            player.GetComponent<Player>().quitarVida();
+            //player.GetComponent<Player>().quitarVida();
         }
     }
 /*

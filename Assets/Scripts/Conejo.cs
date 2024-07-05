@@ -63,7 +63,7 @@ public class Conejo : MonoBehaviour
             panelDialogo.SetActive(false);
             animator.SetBool("PuedeHablar", true);
             Time.timeScale = 1;
-            player.gameObject.GetComponent<Player>().setSalto(true);
+            player.gameObject.GetComponent<PlayerController>().setSalto(true);
         }
         if(lineasIndex % 2 == 0){
             Debug.Log("elric");

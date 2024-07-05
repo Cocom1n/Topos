@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    //VARIABLES MOVIMIENTO JUGADOR
     [SerializeField] private float runSpeed=7;    //velocidad de movimiento del personaje
     [SerializeField] public float jumpSpeed=10;   //Velocidad de salto
-    [SerializeField] private float vidaPlayer=5;
-    [SerializeField] Rigidbody2D rb2D;   //referencia al Rb2D del personaje
+    //[SerializeField] private float vidaPlayer=5;
     private bool dobleSalto;
     private bool dobleSaltoPermitido;
+    private float fuerzaGolpe;
+
+    //VARIABLES CANVAS
     [SerializeField] private GameObject panelPerder;
 
+    //VARIABLES DE COMPONENTES
     public SpriteRenderer spriteRenderer;
+    [SerializeField] Rigidbody2D rb2D;   //referencia al Rb2D del personaje 
     public Animator animator;
  
     void Start()
@@ -77,7 +83,7 @@ public class Player : MonoBehaviour
 
         
     }
-
+/*
     public void quitarVida()
     {
         vidaPlayer--;
@@ -89,6 +95,22 @@ public class Player : MonoBehaviour
             Time.timeScale = 0;
             
         }
+    }*/
+
+    public void AplicarGolpe2()
+    {
+        Vector2 direccionGolpe;
+
+        if (rb2D.velocity.x > 0)
+        {
+            direccionGolpe = new Vector2(-1, 1);
+        }
+        else
+        {
+            direccionGolpe = new Vector2(1, 1);
+        }
+
+        rb2D.AddForce(direccionGolpe * fuerzaGolpe);
     }
 
     public void setSalto(bool permitidoSaltar)
@@ -96,3 +118,4 @@ public class Player : MonoBehaviour
         dobleSaltoPermitido = permitidoSaltar;
     }
 }
+

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player2 : MonoBehaviour
+public class ControlVidas : MonoBehaviour
 {
-    [SerializeField] private float vidaJugador;
-    [SerializeField] private float vidaMaxima;
+    private float vidaJugador;
+    private float vidaMaxima;
     public Image Corazon;
     public RectTransform posicionPrimerCorazon;
     public Canvas myCanvas;
@@ -53,9 +53,10 @@ public class Player2 : MonoBehaviour
             color.a = 0.5f;
             spriteRenderer.color = color;
             Destroy(myCanvas.transform.GetChild((int)vidaJugador + 1).gameObject);
-            vidaJugador -= collision.GetComponent<EnemigoTopo>().dañoCausado;
+            vidaJugador -= 1;
             PosCorazon.position=new Vector2(PosCorazon.position.x - offSet, PosCorazon.position.y);
-            gameObject.GetComponent<PlayerController>().AplicarGolpe();
+            Debug.Log("Aplica ");
+            gameObject.GetComponent<Player>().AplicarGolpe2();
 
             if (vidaJugador <= 0)
             {

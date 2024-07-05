@@ -10,19 +10,19 @@ public class checkGround : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Piso"))
-        {
+        //if(collision.gameObject.CompareTag("Piso"))
+        //{
             isGrounded = true;
-        }
+        //}
         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Piso"))
-        {
+        //if(collision.gameObject.CompareTag("Piso"))
+        //{
             isGrounded = false;
-        }
+        //}
         
     }
 }

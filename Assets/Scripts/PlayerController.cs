@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;    //velocidad de movimiento del personaje
-    [SerializeField] private float jumpForce;
+    private float speed;    //velocidad de movimiento del personaje
+    private float jumpForce;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Transform suelo;
     private bool tocarSuelo;
     private float tocarSueloRadio;
     private Animator animator;
     private Rigidbody2D rigidBody;
+    public SpriteRenderer spriteRenderer;
     private float velX;
     private float velY;
     private float fuerzaGolpe;
     [SerializeField] private Transform controladorAtaque;
     [SerializeField] private float radioGolpe;
-    [SerializeField] private float dañoGolpe;
+    [SerializeField] private float daÃ±oGolpe;
     [SerializeField] private float tiempoEntreAtaques;
     [SerializeField] private float tiempoSiguienteAtaque;
+
+    private bool dobleSalto;
+    private bool dobleSaltoPermitido;
 
     void Start()
     {
@@ -57,9 +61,19 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButton("Jump") && tocarSuelo)
+        if(Input.GetKey("space"))
         {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            if(tocarSuelo)
+            {
+                dobleSalto = true;
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            }
+            else if(Input.GetKeyDown("space") && dobleSalto && dobleSaltoPermitido )
+            {
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 12);
+                dobleSalto = false;
+            }
+            
         }
     }
 
@@ -74,9 +88,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("walk", true);
         }
         else
-            {
-                animator.SetBool("walk", false);
-            }
+        {
+            animator.SetBool("walk", false);
+        }
 
     }
 
@@ -91,6 +105,9 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(1, 1);
         }
     }
+
+
+
 
     void Ataque()
     {
@@ -147,7 +164,7 @@ public class PlayerController : MonoBehaviour
         {
             if (colisionador.CompareTag("Enemigo"))
             {
-                colisionador.transform.GetComponent<EnemigoTopo>().TomarDaño(dañoGolpe);
+                colisionador.transform.GetComponent<EnemigoTopo>().TomarDaÃ±o(daÃ±oGolpe);
 
                 colisionador.transform.GetComponent<MovTopo>().SetEspera(true);
             }
@@ -159,5 +176,10 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(controladorAtaque.position, radioGolpe);
+    }
+
+    public void setSalto(bool permitidoSaltar)
+    {
+        dobleSaltoPermitido = permitidoSaltar;
     }
 }

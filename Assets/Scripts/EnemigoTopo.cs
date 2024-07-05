@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemigoTopo : MonoBehaviour
 {
     [SerializeField] private float healthPoints;
-    [SerializeField] public float dañoCausado;
+    [SerializeField] public float daÃ±oCausado;
 
 
     void Start()
     {
-        dañoCausado = 1f;
+        daÃ±oCausado = 1f;
     }
 
 
@@ -19,9 +19,9 @@ public class EnemigoTopo : MonoBehaviour
 
     }
 
-    public void TomarDaño(float daño)
+    public void TomarDaÃ±o(float daÃ±o)
     {
-        healthPoints -= daño;
+        healthPoints -= daÃ±o;
 
         if (healthPoints <= 0)
         {

@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private float tocarSueloRadio;
     private Animator animator;
     private Rigidbody2D rigidBody;
-    public SpriteRenderer spriteRenderer;
     private float velX;
     private float velY;
     private float fuerzaGolpe;

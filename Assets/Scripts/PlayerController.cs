@@ -142,18 +142,7 @@ public class PlayerController : MonoBehaviour
 
         rigidBody.AddForce(direccionGolpe * fuerzaGolpe);
 
-        //StartCoroutine(EsperaMovimiento());
     }
-
-    //IEnumerator EsperaMovimiento()
-    //{
-    //    yield return new WaitForSeconds(0.1f);
-
-    //    while (!tocarSuelo)
-    //    {
-    //        yield return null;
-    //    }
-    //}
 
     private void Golpe()
     {

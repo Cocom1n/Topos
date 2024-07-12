@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3817974407083824688}
   - component: {fileID: 5175930509323530250}
   - component: {fileID: 3145644927018263095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Elric2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -196,8 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa93ea26cf946e84f9ae7c8c34d73e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  jumpForce: 0
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
@@ -224,6 +222,7 @@ MonoBehaviour:
   Corazon: {fileID: 0}
   posicionPrimerCorazon: {fileID: 0}
   myCanvas: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!1 &4440719060426831881
 GameObject:
   m_ObjectHideFlags: 0

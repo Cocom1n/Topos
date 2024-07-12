@@ -47,7 +47,6 @@ public class MovTopo : MonoBehaviour
     IEnumerator EnemigoCamina()
 {
     velocidad = 0;
-    //animator.SetBool("move", false);
     yield return new WaitForSeconds(2);
     espera = false;
     velocidad = 4;

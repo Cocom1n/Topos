@@ -51,9 +51,9 @@ TagManager:
   - name: piso
     uniqueID: 3460373121
     locked: 0
-  - name: player
-    uniqueID: 3760949937
-    locked: 0
   - name: enemy
     uniqueID: 1613132131
+    locked: 0
+  - name: player
+    uniqueID: 3760949937
     locked: 0

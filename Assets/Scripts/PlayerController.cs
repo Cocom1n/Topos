@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
             {
                 colisionador.transform.GetComponent<EnemigoTopo>().TomarDaño(dañoGolpe);
 
-                colisionador.transform.GetComponent<MovTopo>().SetEspera(true);
+                //colisionador.transform.GetComponent<MovTopo>().SetEspera(true);
             }
 
         }

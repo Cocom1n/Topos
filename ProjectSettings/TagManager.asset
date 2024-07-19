@@ -8,6 +8,7 @@ TagManager:
   - Piso
   - Boss
   - AttackBos
+  - Spider
   layers:
   - Default
   - TransparentFX

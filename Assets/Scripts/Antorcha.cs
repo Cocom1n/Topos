@@ -9,27 +9,51 @@ public class Antorcha : MonoBehaviour
     [SerializeField] private int cantidadAntorcha;
     [SerializeField] private ContarAntorcha contardAntorcha;
     [SerializeField] private bool sePuedeEnceder;
+    [SerializeField] private string nombre;
+    [SerializeField] private float tiempoEncendido;
+    [SerializeField] private bool antorchaEvento;
 
     void Start()
     {
         antorchaApagada.SetActive(true);
         antorchaEncendida.SetActive(false);
         sePuedeEnceder = true;
+        tiempoEncendido = 3;
+        antorchaEvento = false;
+
+    }
+
+    private void Update()
+    {
+        if (tiempoEncendido > 0 && sePuedeEnceder == false && antorchaEvento == true)
+        {
+            tiempoEncendido -= Time.deltaTime;
+        }
+        if (tiempoEncendido <= 0)
+        {
+            tiempoEncendido = 3;
+            antorchaApagada.SetActive(true);
+            antorchaEncendida.SetActive(false);
+            sePuedeEnceder = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && sePuedeEnceder == true)
+        if (collision.gameObject.tag == "Player" && sePuedeEnceder == true && nombre == "antorcha")
         {
-            contardAntorcha.SumarAntorcha(cantidadAntorcha);
+            GameManager.Instance.sumarAntorcha(cantidadAntorcha);
             antorchaApagada.SetActive(false);
             antorchaEncendida.SetActive(true);
             sePuedeEnceder = false;
         }
-    }
 
-    public int GetAntorcha()
-    {
-        return cantidadAntorcha;
+        if (collision.gameObject.tag == "Player" && nombre == "antorchaEvento" && sePuedeEnceder == true)
+        {
+            antorchaApagada.SetActive(false);
+            antorchaEncendida.SetActive(true);
+            sePuedeEnceder = false;
+            antorchaEvento = true;
+        }
     }
 }

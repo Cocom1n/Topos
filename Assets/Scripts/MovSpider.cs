@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovMole : MonoBehaviour
+public class MovSpider : MonoBehaviour
 {
     [SerializeField] private float velocidad;
     [SerializeField] private Transform sueloEnemigo;
@@ -17,19 +17,15 @@ public class MovMole : MonoBehaviour
     [SerializeField] private float radioDeteccion;
     [SerializeField] private LayerMask tipoSuelo;
     private Rigidbody2D rigidEnemigo;
-    private Animator anim;
     private bool caminaDerecha;
-    [SerializeField] GameObject ataque;
 
     void Start()
     {
         rigidEnemigo = GetComponent<Rigidbody2D>();
         velocidad = 120f;
-        anim = GetComponent<Animator>();
         enemigoCegado = false;
     }
 
-    
     void Update()
     {
         sueloDetectado = !Physics2D.OverlapCircle(sueloEnemigo.position, radioDeteccion, tipoSuelo);
@@ -46,7 +42,6 @@ public class MovMole : MonoBehaviour
     {
         if (enemigoQuieto)
         {
-            anim.SetBool("move", false);
             rigidEnemigo.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
@@ -54,7 +49,6 @@ public class MovMole : MonoBehaviour
         {
 
             rigidEnemigo.constraints = RigidbodyConstraints2D.FreezeRotation;
-            anim.SetBool("move", true);
             if (!caminaDerecha)
             {
 
@@ -67,10 +61,13 @@ public class MovMole : MonoBehaviour
         }
         if (enemigoCegado)
         {
-            anim.SetBool("blind",true);
             rigidEnemigo.constraints = RigidbodyConstraints2D.FreezeAll;
-            ataque.SetActive(false);
         }
+
+        //if (enemigoCegado == false)
+        //{
+        //    enemigoCaminando = true;
+        //}
     }
 
     private void Gira()
@@ -79,9 +76,9 @@ public class MovMole : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
-    public void SetEnemigoCegado(bool cegado) 
+    public void SetEnemigoCegado(bool cegado)
     {
-        enemigoCegado=cegado;
+        enemigoCegado = cegado;
         enemigoCaminando = false;
     }
 }

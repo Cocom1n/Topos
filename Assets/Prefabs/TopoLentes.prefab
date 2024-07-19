@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021102905, y: 0}
+  m_Offset: {x: -0.24258804, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9671173, y: 0.9492878}
+  m_Size: {x: 3.4100876, y: 0.9492878}
   m_EdgeRadius: 0
 --- !u!114 &6249688568580765386
 MonoBehaviour:
@@ -164,11 +164,11 @@ GameObject:
   - component: {fileID: 2018393749936127589}
   - component: {fileID: 6217862986302804796}
   - component: {fileID: 5339990276900112237}
-  - component: {fileID: 1548442814041625060}
   - component: {fileID: 4544564259646253104}
   - component: {fileID: 5747652752718987668}
   - component: {fileID: 6482549771735654541}
   - component: {fileID: 3513471084607543138}
+  - component: {fileID: 1753970600297661039}
   m_Layer: 6
   m_Name: TopoLentes
   m_TagString: Enemigo
@@ -282,20 +282,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.040224925, y: 0.06999999}
   m_Size: {x: 2.3398015, y: 1.170014}
   m_Direction: 1
---- !u!114 &1548442814041625060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5259636908582710504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4124e8041662549aee68b55bbda1d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 5
-  "da\xF1oCausado": 0
 --- !u!61 &4544564259646253104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -386,6 +372,7 @@ MonoBehaviour:
   detectarSuelo: {fileID: 3932074952665582992}
   enemigoQuieto: 0
   enemigoCaminando: 1
+  enemigoCegado: 0
   paredDetectada: 0
   sueloDetectado: 0
   estaSuelo: 0
@@ -393,6 +380,7 @@ MonoBehaviour:
   tipoSuelo:
     serializedVersion: 2
     m_Bits: 8
+  ataque: {fileID: 0}
 --- !u!95 &3513471084607543138
 Animator:
   serializedVersion: 5
@@ -414,6 +402,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1753970600297661039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259636908582710504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4c7258a71ac0d4fa1f1c1a34a7dbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 5
+  "da\xF1oCausado": 0
+  nombreEnemigo: topoLentes
 --- !u!1 &5557067049941079063
 GameObject:
   m_ObjectHideFlags: 0

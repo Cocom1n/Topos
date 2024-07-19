@@ -10,7 +10,7 @@ public class EnemigoTopo : MonoBehaviour
 
     void Start()
     {
-        dañoCausado = 1f;
+        dañoCausado = 10f;
     }
 
 

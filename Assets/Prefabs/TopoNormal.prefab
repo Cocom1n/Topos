@@ -105,10 +105,10 @@ GameObject:
   - component: {fileID: 4017714772766278150}
   - component: {fileID: 1297959124191570375}
   - component: {fileID: 7728276384545191920}
-  - component: {fileID: 8820242212337135957}
   - component: {fileID: 1312825042819077739}
   - component: {fileID: 9009531841072236436}
   - component: {fileID: 4719589640485210895}
+  - component: {fileID: 2612678024063988847}
   m_Layer: 6
   m_Name: TopoNormal
   m_TagString: Enemigo
@@ -243,20 +243,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8820242212337135957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911772981492796871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4124e8041662549aee68b55bbda1d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 5
-  "da\xF1oCausado": 0
 --- !u!61 &1312825042819077739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -347,6 +333,7 @@ MonoBehaviour:
   detectarSuelo: {fileID: 4550434429319585420}
   enemigoQuieto: 0
   enemigoCaminando: 1
+  enemigoCegado: 0
   paredDetectada: 0
   sueloDetectado: 0
   estaSuelo: 0
@@ -354,6 +341,22 @@ MonoBehaviour:
   tipoSuelo:
     serializedVersion: 2
     m_Bits: 8
+  ataque: {fileID: 8737213215122222011}
+--- !u!114 &2612678024063988847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911772981492796871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4c7258a71ac0d4fa1f1c1a34a7dbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3
+  "da\xF1oCausado": 0
+  nombreEnemigo: topo
 --- !u!1 &8737213215122222011
 GameObject:
   m_ObjectHideFlags: 0

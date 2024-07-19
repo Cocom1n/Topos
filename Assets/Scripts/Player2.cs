@@ -6,40 +6,24 @@ using UnityEngine.UI;
 
 public class Player2 : MonoBehaviour
 {
-    [SerializeField] private float vidaJugador;
-    [SerializeField] private float vidaMaxima;
-    public Image Corazon;
-    public RectTransform posicionPrimerCorazon;
-    public Canvas myCanvas;
-    private int offSet;
     private bool puedeRecibirDaño;
     private float cooldownDaño;
     private SpriteRenderer spriteRenderer;
     public GameObject gameOver;
-    Transform PosCorazon;
+    public Image barraVida;
+    [SerializeField] private GameObject contadorVida;
     void Start()
     {
         gameOver.SetActive(false);
-        vidaMaxima = 5f;
-        vidaJugador = vidaMaxima;
         puedeRecibirDaño = true;
         cooldownDaño = 3f;
-        offSet = 75;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        PosCorazon = posicionPrimerCorazon;
-
-        for (int i = 0; i < vidaMaxima; i++)
-        {
-            Image newCorazon = Instantiate(Corazon, PosCorazon.position, Quaternion.identity);
-            newCorazon.transform.SetParent(myCanvas.transform);
-            PosCorazon.position = new Vector2(PosCorazon.position.x + offSet, PosCorazon.position.y);
-        }
     }
 
     void Update()
     {
-   
+        barraVida.fillAmount = GameManager.Instance.vidaMaxima / 100;
+        contadorVida.GetComponent<CantidadVida>().TotalVida(GameManager.Instance.vidaMaxima);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,15 +39,27 @@ public class Player2 : MonoBehaviour
             Color color = spriteRenderer.color;
             color.a = 0.5f;
             spriteRenderer.color = color;
-            Destroy(myCanvas.transform.GetChild((int)vidaJugador + 1).gameObject);
-            vidaJugador -= collision.GetComponent<EnemigoTopo>().dañoCausado;
-            PosCorazon.position=new Vector2(PosCorazon.position.x - offSet, PosCorazon.position.y);
+            if (collision.GetComponent<Enemigos>().nombreEnemigo == "topo")
+            {
+                GameManager.Instance.restarVida(collision.GetComponent<Enemigos>().dañoCausado);
+            }
+            if (collision.GetComponent<Enemigos>().nombreEnemigo == "spider")
+            {
+                GameManager.Instance.restarVida(collision.GetComponent<Enemigos>().dañoCausado);
+            }
+            if (collision.GetComponent<Enemigos>().nombreEnemigo == "topoLentes")
+            {
+                GameManager.Instance.restarVida(collision.GetComponent<Enemigos>().dañoCausado);
+            }
+            if (collision.GetComponent<Enemigos>().nombreEnemigo == "topoArmadura")
+            {
+                GameManager.Instance.restarVida(collision.GetComponent<Enemigos>().dañoCausado);
+            }
             gameObject.GetComponent<PlayerController>().AplicarGolpe();
 
-            if (vidaJugador <= 0)
+            if (GameManager.Instance.vidaMaxima <= 0)
             {
-                Destroy(gameObject);
-                Destroy(Corazon);
+                //Destroy(gameObject);
                 gameOver.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -81,32 +77,23 @@ public class Player2 : MonoBehaviour
             Color color = spriteRenderer.color;
             color.a = 0.5f;
             spriteRenderer.color = color;
-            Destroy(myCanvas.transform.GetChild((int)vidaJugador + 1).gameObject);
-            vidaJugador -= 1;
-            PosCorazon.position = new Vector2(PosCorazon.position.x - offSet, PosCorazon.position.y);
+            GameManager.Instance.restarVida(10);
             gameObject.GetComponent<PlayerController>().AplicarGolpe();
 
-            if (vidaJugador <= 0)
+            if (GameManager.Instance.vidaMaxima <= 0)
             {
-                Destroy(gameObject);
-                Destroy(Corazon);
+                //Destroy(gameObject);
+                gameOver.SetActive(true);
             }
 
             Invoke("ActivarDaño", cooldownDaño);
         }
         if (collision.CompareTag("Player"))
         {
-            if (vidaJugador < vidaMaxima) 
+            if (GameManager.Instance.vidaMaxima<100) 
             {
-                Transform PosCorazon = posicionPrimerCorazon;
-                for (float i = vidaJugador; i < vidaJugador+1; i++)
-                {
-                    Image newCorazon = Instantiate(Corazon, PosCorazon.position, Quaternion.identity);
-                    newCorazon.transform.SetParent(myCanvas.transform);
-                    PosCorazon.position = new Vector2(PosCorazon.position.x + offSet, PosCorazon.position.y);
-                    collision.GetComponent<ArmadilloVida>().Muerte();
-                }
-                vidaJugador += collision.GetComponent<ArmadilloVida>().aumentoVida;
+                GameManager.Instance.sumarVida(collision.GetComponent<ArmadilloVida>().aumentoVida);
+                collision.GetComponent<ArmadilloVida>().Muerte();
             }
         }
     }
@@ -119,8 +106,4 @@ public class Player2 : MonoBehaviour
         spriteRenderer.color = c;
     }
 
-    public void AgregarVida()
-    {
-        vidaJugador += 1;
-    }
 }

@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,6 +35,10 @@ public class PlayerController : MonoBehaviour
         jumpForce = 7f;
         tocarSueloRadio = 0.2f;
         fuerzaGolpe = 500f;
+        if (GameManager.Instance.eventoAraña == true && GameManager.Instance.eventoArañaCompletado == true && SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            gameObject.transform.position = new Vector3(33.83f, -72.89f, 0f);
+        }
     }
 
     
@@ -152,7 +159,7 @@ public class PlayerController : MonoBehaviour
         {
             if (colisionador.CompareTag("Enemigo"))
             {
-                colisionador.transform.GetComponent<EnemigoTopo>().TomarDaño(dañoGolpe);
+                colisionador.transform.GetComponent<Enemigos>().TomarDaño(dañoGolpe);
 
                 //colisionador.transform.GetComponent<MovTopo>().SetEspera(true);
             }

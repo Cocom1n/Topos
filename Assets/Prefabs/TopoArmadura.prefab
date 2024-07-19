@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5458819796845013887}
   - component: {fileID: 6182276840652037671}
   - component: {fileID: 5281469607443160101}
-  - component: {fileID: 2921551673648663956}
   - component: {fileID: 3602170657771279310}
   - component: {fileID: 4561144613577203916}
   - component: {fileID: 8577943566989657013}
   - component: {fileID: 3590006902037737591}
+  - component: {fileID: 6826775656760393769}
   m_Layer: 6
   m_Name: TopoArmadura
   m_TagString: Enemigo
@@ -129,20 +129,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0081038475, y: 0.23974037}
   m_Size: {x: 1.1912489, y: 1.4288545}
   m_Direction: 0
---- !u!114 &2921551673648663956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438563622279829694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4124e8041662549aee68b55bbda1d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 5
-  "da\xF1oCausado": 0
 --- !u!61 &3602170657771279310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -233,6 +219,7 @@ MonoBehaviour:
   detectarSuelo: {fileID: 1923647237874872139}
   enemigoQuieto: 0
   enemigoCaminando: 1
+  enemigoCegado: 0
   paredDetectada: 0
   sueloDetectado: 0
   estaSuelo: 0
@@ -240,6 +227,7 @@ MonoBehaviour:
   tipoSuelo:
     serializedVersion: 2
     m_Bits: 8
+  ataque: {fileID: 0}
 --- !u!95 &3590006902037737591
 Animator:
   serializedVersion: 5
@@ -261,6 +249,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6826775656760393769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438563622279829694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4c7258a71ac0d4fa1f1c1a34a7dbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 7
+  "da\xF1oCausado": 0
+  nombreEnemigo: topoArmadura
 --- !u!1 &617683213262746523
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +391,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.028575897, y: 0}
+  m_Offset: {x: -0.222332, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -399,7 +402,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.959465, y: 0.9492878}
+  m_Size: {x: 2.3469772, y: 0.9492878}
   m_EdgeRadius: 0
 --- !u!114 &3943102629467937805
 MonoBehaviour:

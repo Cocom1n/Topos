@@ -5,7 +5,7 @@ using TMPro;
 
 public class ContarAntorcha : MonoBehaviour
 {
-    private int antorcha;
+    //private int antorcha;
     private TextMeshProUGUI textMesh;
 
     private void Start()
@@ -15,16 +15,6 @@ public class ContarAntorcha : MonoBehaviour
 
     private void Update()
     {
-        textMesh.text = "x 0"+ antorcha.ToString();
-    }
-
-    public void SumarAntorcha(int antorchaNueva)
-    {
-        antorcha += antorchaNueva;
-    }
-
-    public int GetAntorcha()
-    {
-        return antorcha;
+        textMesh.text = "x 0"+ GameManager.Instance.antorchaTotales.ToString();
     }
 }

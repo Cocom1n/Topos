@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -534017359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -820229155, guid: c2dbb4325b18fe449a8a28751b8888aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -218,12 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174bc625ad1f56f42b2ee42bf5849c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaJugador: 5
-  vidaMaxima: 5
-  Corazon: {fileID: 0}
-  posicionPrimerCorazon: {fileID: 0}
-  myCanvas: {fileID: 0}
   gameOver: {fileID: 0}
+  barraVida: {fileID: 0}
+  contadorVida: {fileID: 0}
 --- !u!1 &1812799217349138546
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6505472268107710761}
   - component: {fileID: 3395405070989597557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Luz
   m_TagString: Untagged
   m_Icon: {fileID: 0}

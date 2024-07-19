@@ -10,7 +10,7 @@ public class ArmadilloVida : MonoBehaviour
 
     private void Start()
     {
-        aumentoVida = 1;
+        aumentoVida = 10;
     }
 
 

@@ -14,6 +14,7 @@ public class Enemigos : MonoBehaviour
         if (nombreEnemigo == "spider")
         {
             dañoCausado = 1f;
+            healthPoints = 1f;
         }
         if (nombreEnemigo == "topo")
         {

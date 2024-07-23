@@ -20,6 +20,12 @@ public class SpawnerSpider : MonoBehaviour
         {
             iniciaSpawn = true;
         }
+
+        if (GameManager.Instance.eventoArañaCompletado == true)
+        {
+            iniciaSpawn = false;
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator SpawnSpider()
@@ -29,7 +35,7 @@ public class SpawnerSpider : MonoBehaviour
             yield return null;
         }
 
-        while (true)
+        while (iniciaSpawn == true)
         {
             Instantiate(arañas,transform.position,Quaternion.identity);
             yield return new WaitForSeconds(2f);

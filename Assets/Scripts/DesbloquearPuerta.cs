@@ -36,5 +36,13 @@ public class DesbloquearPuerta : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, punto.position, velocidad * Time.deltaTime);
         }
+        if (nombre == "bloqueAntorcha" && GameManager.Instance.antorchaTotales == 3)
+        {
+            Destroy(gameObject);
+        }
+        if (nombre == "bloqueAntorcha2" && GameManager.Instance.antorchaTotales == 6)
+        {
+            Destroy(gameObject);
+        }
     }
 }

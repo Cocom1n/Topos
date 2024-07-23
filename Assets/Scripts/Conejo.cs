@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Conejo : MonoBehaviour
@@ -13,6 +14,9 @@ public class Conejo : MonoBehaviour
     [SerializeField, TextArea(4,6)] private string[] lineas;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject player;
+    [SerializeField] private string nombre;
+    [SerializeField] private GameObject boton;
+    [SerializeField] private GameObject boton2;
 
     private bool dialogoIniciado;
     private int lineasIndex;
@@ -41,41 +45,93 @@ public class Conejo : MonoBehaviour
 
     private void IniciarDialogo()
     {
-        dialogoIniciado = true;
-        panelDialogo.SetActive(true);
-        animator.SetBool("PuedeHablar", false);
-        lineasIndex = 0;
-        StartCoroutine(MostrarLinea());
-        Time.timeScale = 0;
-        
+        if (nombre == "conejo")
+        {
+            dialogoIniciado = true;
+            panelDialogo.SetActive(true);
+            animator.SetBool("PuedeHablar", false);
+            lineasIndex = 0;
+            StartCoroutine(MostrarLinea());
+            Time.timeScale = 0;
+        }
+
+        if (nombre == "conejoEvento")
+        {
+            dialogoIniciado = true;
+            panelDialogo.SetActive(true);
+            animator.SetBool("PuedeHablar", false);
+            lineasIndex = 0;
+            StartCoroutine(MostrarLinea());
+            Time.timeScale = 0;
+        }
     }
 
     private void SiguienteDialogo()
     {
-        lineasIndex ++;
-        if(lineasIndex < lineas.Length)
+        if (nombre =="conejo")
         {
-            StartCoroutine(MostrarLinea());
+            lineasIndex++;
+            if (lineasIndex < lineas.Length)
+            {
+                StartCoroutine(MostrarLinea());
+            }
+            else
+            {
+                dialogoIniciado = false;
+                panelDialogo.SetActive(false);
+                animator.SetBool("PuedeHablar", true);
+                Time.timeScale = 1;
+                player.gameObject.GetComponent<PlayerController>().setSalto(true);
+            }
+            if (lineasIndex % 2 == 0)
+            {
+                Debug.Log("elric");
+                imgElric.SetActive(true);
+                imgConejo.SetActive(false);
+            }
+            if (lineasIndex % 2 != 0)
+            {
+                Debug.Log("conejo");
+                imgConejo.SetActive(true);
+                imgElric.SetActive(false);
+            }
         }
-        else
+
+        if (nombre == "conejoEvento")
         {
-            dialogoIniciado = false;
-            panelDialogo.SetActive(false);
-            animator.SetBool("PuedeHablar", true);
-            Time.timeScale = 1;
-            player.gameObject.GetComponent<PlayerController>().setSalto(true);
+            lineasIndex++;
+            if (lineasIndex < lineas.Length)
+            {
+                StartCoroutine(MostrarLinea());
+            }
+            else
+            {
+                dialogoIniciado = false;
+                panelDialogo.SetActive(false);
+                animator.SetBool("PuedeHablar", true);
+                boton.SetActive(false);
+                boton2.SetActive(false);
+                Time.timeScale = 1;
+            }
+            if (lineasIndex == 0)
+            {
+                imgElric.SetActive(false);
+                imgConejo.SetActive(true);
+            }
+            if (lineasIndex == 1)
+            {
+                imgConejo.SetActive(false);
+                imgElric.SetActive(true);
+            }
+            if (lineasIndex == 2)
+            {
+                imgElric.SetActive(false);
+                imgConejo.SetActive(true);
+                boton.SetActive(true);
+                boton2.SetActive(true);
+            }
         }
-        if(lineasIndex % 2 == 0){
-            Debug.Log("elric");
-            imgElric.SetActive(true);
-            imgConejo.SetActive(false);
-        }
-        if(lineasIndex % 2 != 0)
-        {
-            Debug.Log("conejo");
-            imgConejo.SetActive(true);
-            imgElric.SetActive(false);
-        }
+
     }
 
     private IEnumerator MostrarLinea()
@@ -104,5 +160,15 @@ public class Conejo : MonoBehaviour
             jugadorDentroDelRango = false;
             animator.SetBool("PuedeHablar", false);
         }
+    }
+
+    public void SalirDialogo()
+    {
+        dialogoIniciado = false;
+        panelDialogo.SetActive(false);
+        animator.SetBool("PuedeHablar", true);
+        boton.SetActive(false);
+        boton2.SetActive(false);
+        Time.timeScale = 1;
     }
 }

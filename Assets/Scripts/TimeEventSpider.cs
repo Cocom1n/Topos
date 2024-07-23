@@ -28,7 +28,6 @@ public class TimeEventSpider : MonoBehaviour
         {
             tiempoPantalla.SetActive(false);
             GameManager.Instance.EventoCompletado();
-            GameObject.Find("Araña").GetComponent<MovSpider>().SetEnemigoCegado(false);
         }
     }
 

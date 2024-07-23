@@ -64,10 +64,6 @@ public class MovSpider : MonoBehaviour
             rigidEnemigo.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
-        //if (enemigoCegado == false)
-        //{
-        //    enemigoCaminando = true;
-        //}
     }
 
     private void Gira()
@@ -80,5 +76,11 @@ public class MovSpider : MonoBehaviour
     {
         enemigoCegado = cegado;
         enemigoCaminando = false;
+    }
+
+    public void SetEnemigoCaminando(bool caminando)
+    {
+        enemigoCaminando = caminando;
+        enemigoCegado = false;
     }
 }

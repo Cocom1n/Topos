@@ -12,18 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/CinematicaInicio.unity
     guid: 7df7f077b9aa4174d99d7b872cfc29b5
   - enabled: 1
-    path: Assets/Scenes/Nivel1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Nivel2.unity
-    guid: e46cae214168574499a730a8c2e37d8c
-  - enabled: 1
-    path: Assets/Scenes/Nivel3.unity
-    guid: 4e47cbb6314d09c4a9d2fc715f04663e
-  - enabled: 1
     path: Assets/Scenes/Scene.unity
     guid: 5b9dd0267ab3f33499f1c1e4bc20bf4d
   - enabled: 1
     path: Assets/Scenes/EventSpider.unity
     guid: d53e7770d315ddd45b0eecd22504660a
+  - enabled: 1
+    path: Assets/Scenes/Nivel3.unity
+    guid: 4e47cbb6314d09c4a9d2fc715f04663e
   m_configObjects: {}

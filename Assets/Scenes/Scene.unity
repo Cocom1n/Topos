@@ -2504,7 +2504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hola Cande.
+  m_text: "\xA1Que extra\xF1o! Porque los topos se volvieron tan agresivos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: add505b8aa9abc14887998c28b2a5bb0, type: 2}
   m_sharedMaterial: {fileID: 2785840912881749412, guid: add505b8aa9abc14887998c28b2a5bb0, type: 2}
@@ -3640,7 +3640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Espero que estes bien ja.
+  m_text: Tengo que averiguar que esta pasando.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: add505b8aa9abc14887998c28b2a5bb0, type: 2}
   m_sharedMaterial: {fileID: 2785840912881749412, guid: add505b8aa9abc14887998c28b2a5bb0, type: 2}
